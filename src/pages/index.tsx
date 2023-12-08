@@ -1,7 +1,4 @@
 import Header from '@/components/Header';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -49,7 +46,7 @@ export default function Home() {
         <div className='space-y-4 w-full'>
           {/* Profile Card */}
           <div className='bg-[#FFF] card'>
-            <div className='grid grid-cols-2 gap-y-2 items-start max-w-[250px] mx-auto'>
+            <div className='grid grid-cols-2 gap-y-2 items-start max-w-[350px] mx-auto'>
               <h2 className='text-black font-medium'>Name:</h2>
               <span className='text-gray-500'> Jim</span>
               <h2 className='text-black font-medium'>Email:</h2>
