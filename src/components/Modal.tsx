@@ -7,10 +7,10 @@ interface Props {
   title: string;
   setShow: Function;
   content: React.JSX.Element;
-  submit:(event: React.MouseEvent<HTMLButtonElement>) => void;
+  // submit:(event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Modal({ show, setShow, title, content, submit }: Props) {
+export default function Modal({ show, setShow, title, content}: Props) {
   const closeForm = () => {
     setShow();
   }
@@ -18,8 +18,8 @@ export default function Modal({ show, setShow, title, content, submit }: Props) 
   return (
     show ? (
       <div className='modal flex flex-col space-y-4' >
-        <div onClick={closeForm} className='fixed inset-0 bg-gray-300 bg-opacity-50 w-[100%] h-[100%]'></div>
-        <div className='card bg-white absolute left-[25%] top-[25%] w-3/6 m-auto'>
+        <div onClick={closeForm} className='z-[99] fixed inset-0 bg-gray-300 bg-opacity-50 w-[100%] h-[100%]'></div>
+        <div className='z-[99] card bg-white absolute left-[25%] top-[25%] w-3/6 m-auto'>
 
           <div className='title m-1'>
             <h2 className=' text-center text-xl text-[#1D3557] font-bold'>{title}

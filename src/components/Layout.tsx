@@ -38,9 +38,9 @@ function Layout({ children }: { children: React.ReactNode }) {
       }
     } catch (err) {
       console.log(err);
-      window.location.assign(
-        'https://finease.auth.us-east-1.amazoncognito.com/login?client_id=19l6pg30ghq8lttdkg435i6hlc&response_type=token&scope=email+openid+phone&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F'
-      );
+      // window.location.assign(
+      //   'https://finease.auth.us-east-1.amazoncognito.com/login?client_id=19l6pg30ghq8lttdkg435i6hlc&response_type=token&scope=email+openid+phone&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F'
+      // );
       // toast.error('Please login to continue');
     }
   }, []);

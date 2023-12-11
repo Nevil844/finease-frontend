@@ -5,73 +5,25 @@ import Button from '@/components/Button';
 import Modal from "@/components/Modal";
 import { useState, use } from 'react'
 import { useFormik } from 'formik';
+import validate from '@/components/InvestmentValidation'
 
 
 
 
 function Investment() {
   const [showInvestment, setInvestment] = useState(false);
-  const [investmentType, setInvestmentType] = useState('');
-  const [Amount, setAmount] = useState(NaN);
-  const [expectedAmount, setExpectedAmount] = useState(NaN);
-  const [holdTime, setHoldTime] = useState(NaN);
   const [count, setCount] = useState(0);
-
   const [APY, setAPY] = useState(NaN);
   const [nameError, setNameError] = useState({ isNameError: true, message: 'Please enter the Name of the Goal' });
-  const [amountError, setAmountError] = useState({ amountError: true, message: 'Please enter a valid value' });
 
   const handleSubmitForm = (event: MouseEvent<HTMLButtonElement>) => {
-    formik.handle
     event.preventDefault();
     if (nameError.isNameError == false && count == 4) {
       setInvestment(false); setInvestmentType(''); setAmount(NaN); setCount(0);
     }
   }
   
-  const validate = (values : { 
-  investmentType:string,
-  Amount:number,
-  expectedAmount:number,
-  timeOfReturn:Date,
-  holdTime:number}
-  ) => {
 
-    const errors = {};
-
-    if (!values.investmentType) {
-      errors.investmentType = 'Type od investment is required ';
-    } else if (values.investmentType.length > 15) {
-      errors.investmentType = 'Must be 15 characters or less';
-    }
-
-   if(!values.Amount){
-    errors.Amount = 'Amount of investment is Required';
-   } else if (values.Amount <= 0) {
-      errors.Amount = 'Amount must be greater than zero';
-    }
-   if(!values.expectedAmount){
-    errors.expectedAmount = 'Expected Amount after investment is Required';
-   } else if (values.expectedAmount <= 0) {
-      errors.expectedAmount = 'Amount must be greater than zero';
-    }
-   if(!values.holdTime){
-    errors.holdTime = 'Time period is a Required feild';
-   } else if (values.holdTime <= 0) {
-      errors.holdTime = 'Please enter valid time in months';
-    }
-    var date = new Date(values.timeOfReturn);
-    var nowDate =  new Date();
-
-    if (!values.timeOfReturn) {
-      errors.timeOfReturn = 'Date of investment is a Required feild';
-    }
-    
-    else if(0 >= (date.getTime()-nowDate.getTime())){
-      errors.timeOfReturn = 'Enter a valid date ';
-    }
-    return errors;
-  };
   const formik = useFormik({
     initialValues: {
       investmentType: '',
@@ -90,6 +42,7 @@ function Investment() {
         timeOfReturn:Date,
         holdTime:number}
       ) => {
+        setInvestment(false);
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -175,7 +128,7 @@ function Investment() {
         heading="Invest, Track, Triumph!"
         subheading="Track your Investments here"
       />
-      <Modal submit={handleSubmitForm} show={showInvestment} setShow={() => { setInvestment(false); }} title={"Add Investments"} content={content}></Modal>
+      <Modal show={showInvestment} setShow={() => { setInvestment(false); }} title={"Add Investments"} content={content}></Modal>
 
       <div className="overflow-x-auto">
         <table className="min-w-full border border-black table-auto mt-10">
