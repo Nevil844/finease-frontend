@@ -74,6 +74,9 @@ function Goals() {
             <span> Amount : </span> <input onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{if(+e.target.value === 0){setAmountError({amountError :true,message:"Please enter a valid value"})}else {setAmountError((prev)=>({amountError:false,message:''}))}
                 setGoalAmount(+e.target.value)}} value={goalAmount} className='ml-2' type="number" />
         </div>
+        <div className='button w-[20%] m-auto mt-3'>
+          <Button text="Submit" handleClick={handleSubmitForm} />
+        </div>
     </>;
     return (
 
