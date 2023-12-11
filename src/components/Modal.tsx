@@ -18,7 +18,7 @@ export default function Modal({ show, setShow, title, content, submit }: Props) 
   return (
     show ? (
       <div className='modal flex flex-col space-y-4' >
-        <div onClick={closeForm} className='absolute top-0 left-0 bg-gray-300 bg-opacity-50 w-[100%] h-screen'></div>
+        <div onClick={closeForm} className='fixed inset-0 bg-gray-300 bg-opacity-50 w-[100%] h-[100%]'></div>
         <div className='card bg-white absolute left-[25%] top-[25%] w-3/6 m-auto'>
 
           <div className='title m-1'>
@@ -28,9 +28,9 @@ export default function Modal({ show, setShow, title, content, submit }: Props) 
           <div className='content flex flex-col w-[80%] m-auto'>
             {content}
           </div>
-        <div className='button w-[20%] m-auto mt-3'>
+        {/* <div className='button w-[20%] m-auto mt-3'>
           <Button text="Submit" handleClick={submit} />
-        </div>
+        </div> */}
         </div>
       </div>) :
       <div></div>
