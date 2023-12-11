@@ -3,10 +3,12 @@ import { authSlice } from "./authSlice";
 import { createWrapper } from "next-redux-wrapper";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { userSlice } from "./userSlice";
 
 
 const rootReducer = combineReducers({
     [authSlice.name]: authSlice.reducer,
+    [userSlice.name]: userSlice.reducer,
 });
 
 const makeConfiguredStore = () =>
