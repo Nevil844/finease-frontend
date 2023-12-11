@@ -86,7 +86,7 @@ function Goals() {
                 subheading='Know how you can acquire your goals'
             />
             <section className=' flex items-start justify-around space-x-6 mt-4'>
-                <Modal submit={handleSubmitForm} show={showAddGoal} setShow={handleCloseForm} title={"Set Goals"} content={content}></Modal>
+                <Modal show={showAddGoal} setShow={handleCloseForm} title={"Set Goals"} content={content}></Modal>
 
                 {/* Column 1 */}
                 <div className='space-y-4'>
