@@ -17,7 +17,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       // Check if user is logged in
-      if (authState) {
+      if (!authState) {
         toast.success('Welcome back, Logged in successful!');
         return;
       }
