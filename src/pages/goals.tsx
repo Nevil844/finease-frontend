@@ -74,6 +74,9 @@ function Goals() {
             <span> Amount : </span> <input onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{if(+e.target.value === 0){setAmountError({amountError :true,message:"Please enter a valid value"})}else {setAmountError((prev)=>({amountError:false,message:''}))}
                 setGoalAmount(+e.target.value)}} value={goalAmount} className='ml-2' type="number" />
         </div>
+        <div className='button w-[20%] m-auto mt-3'>
+          <Button text="Submit" handleClick={handleSubmitForm} />
+        </div>
     </>;
     return (
 
@@ -83,7 +86,7 @@ function Goals() {
                 subheading='Know how you can acquire your goals'
             />
             <section className=' flex items-start justify-around space-x-6 mt-4'>
-                <Modal submit={handleSubmitForm} show={showAddGoal} setShow={handleCloseForm} title={"Set Goals"} content={content}></Modal>
+                <Modal show={showAddGoal} setShow={handleCloseForm} title={"Set Goals"} content={content}></Modal>
 
                 {/* Column 1 */}
                 <div className='space-y-4'>
