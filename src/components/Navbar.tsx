@@ -41,7 +41,16 @@ function Navbar() {
   const pathname = usePathname();
   return (
     <nav className='w-1/4 p-6'>
-      <h1 className='text-4xl'>Finease</h1>
+      <div className="flex items-center">
+        <Image
+          src="/logo.jpg"
+          height={32}
+          width={32}
+          alt="Finease Logo"
+          className="mr-2"
+        />
+        <h1 className="text-4xl">FinEase</h1>
+      </div>
       <ul className='flex flex-col space-y-4 mt-6'>
         <Link
           href={{
